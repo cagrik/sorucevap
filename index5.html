@@ -1,0 +1,576 @@
+
+<!DOCTYPE html>
+<html lang="tr-TR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+          crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+          crossorigin="anonymous">
+
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.1.1.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/mvc/5.2.3/jquery.validate.unobtrusive.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+  
+    
+    <title> </title>
+  
+    
+    <style>
+    body{min-width: 390px;}
+    .header {
+            background-color: #bd0945;
+            width: 100%;
+            color: #ff6a00;
+            float: left;
+            height: auto;
+            max-height: 62px;
+        }
+
+                .header ul li a {
+                    color: #ff6a00;
+                    font-size: 18px;
+                }
+
+            .floatright {
+                width: 50%;
+            }
+
+            #entries {
+                border: 1px solid #d3d3d3;
+                width: 100%;
+                height: auto;
+                float: left;
+            }
+
+                #entries h3 a{
+                    float: left;
+                    width: 97%;
+                    height: auto;
+                    color: #901515;
+                    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                    border: solid 1px #d3d3d3;
+                    border-radius: 2px;
+                    padding: .5%;
+                    -ms-word-break: break-word;
+                    word-break: break-word;
+                    display:inline-block;
+                }
+
+            .entry {
+                border: solid 1px #d3d3d3;
+                border-radius: 2px;
+                float: left;
+                width: 94%;
+                height: auto;
+                margin: 1%;
+                padding: 2%;
+            }
+
+            .entrycontent {
+                width: 100%;
+                height: auto;
+                float: left;
+            }
+
+                .entrycontent p img {
+                    height: auto;
+                    text-align: center;
+                    max-width: 95%;
+                    margin: 2%;
+                }
+
+                .entrycontent img {
+                    height: auto;
+                    text-align: center;
+                    max-width: 95%;
+                    margin: 2%;
+                }
+
+            .entrydet {
+                width: 100%;
+                float: left;
+                margin-top: 15px;
+            }
+
+                .entrydet .sol {
+                    float: left;
+                }
+
+                    .entrydet .sol time {
+                        margin-left: 15px;
+                        text-decoration: underline;
+                    }
+
+                .entrydet .sag {
+                    float: left;
+                }
+
+                    .entrydet .sag img {
+                        border-radius: 50%;
+                    }
+
+                .entrydet .sol a {
+                    margin-left: 15px;
+                    color: #808080;
+                    text-decoration: none;
+                }
+
+                    .entrydet .sol a:first-child {
+                        margin-left: 0;
+                    }
+
+            .evideo {
+                height: 315px;
+                width: 80%;
+                float: left;
+                border: none;
+                margin: 2%;
+            }
+
+            .baslikliste {
+                list-style: none;
+                margin: 0px;
+                padding: 0px;
+            }
+
+                .baslikliste li a {
+                    text-decoration: none;
+                    color: #000;
+                    font-size: 15px;
+                    -ms-word-break: break-word;
+                    word-break: break-word;
+                }
+
+                .baslikliste li {
+                    display: table;
+                    border-bottom: 1px solid #d3d3d3;
+                    width: 100%;
+                    height: auto;
+                    float: left;
+                    -ms-word-break: break-word;
+                    word-break: break-word;
+                }
+
+                    .baslikliste li span {
+                        float: right;
+                    }
+
+            .basliklar {
+                float: left;
+                width: 100%;
+                height: auto;
+                border: solid 1px #d3d3d3;
+                border-radius: 2px;
+                margin: .8% .8% .8% 1%;
+            }
+
+            footer {
+                width: 100%;
+                float: left;
+                height: 200px;
+                background-color: darkorange;
+            }
+            .cd{  float: left;
+                    height: 40px;
+                    width: 100%;
+                    font-size: 18px;
+                    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                    margin: 0 auto;
+    }
+    .search {
+                height: auto;
+                float: left;
+                width: 40%;
+                margin-top: 10px;
+                margin-left: 8%;
+            }
+
+            .autocomplete {
+                height: 80%;
+                width: 100%;
+                float: left;
+                background-color: #ffffff;
+                display: none;
+            }
+
+            .autocomplete ul {
+                    list-style: none;
+                    display: block;
+                    float: left;
+                    margin: 0px;
+                    padding-left: 10px;
+                    width: 98%;
+                }
+
+                     .autocomplete ul li {
+                        float: left;
+                        margin: 0px;
+                        height: 18px;
+                        width: 100%;
+                        margin-bottom: 5px;
+                        display: block;
+                    }
+
+                        .autocomplete ul li:hover {
+                            background-color: #d3d3d3;
+                        }
+
+                         .autocomplete ul li a {
+                            text-decoration: none;
+                            float: left;
+                            width: 100%;
+                            font-size: 15px;
+                            color: #161313;
+                            display: block;
+                        }
+
+             .search input[type="search"] {
+                float: left;
+                height: 30px;
+                width: 100%;
+                font-size: 100%;
+                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            }
+ .entrypager {
+            height: 30px;
+            width: 100%;
+            float: left;
+            text-align: right;
+        }
+
+            .entrypager a {
+                text-decoration: none;
+                display: inline-block;
+                border: #000 1px solid;
+                padding: 0 10px;
+                margin-right: 5px;
+                margin-left: 5px;
+            }
+
+            .entrypager select {
+                height: auto;
+                margin-left: 5px;
+                margin-right: 5px;
+            }
+
+            
+        #entry {
+            width: 100%;
+            height: 350px;
+            resize: none;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        #entrytb {
+            height: 30px;
+            margin: 0px;
+            width: 100%;
+            background-color: #e6e4e4;
+            vertical-align: top;
+        }
+
+            #entrytb .tb {
+                height: 100%;
+                float: left;
+                width: 50px;
+                color: #161313;
+                margin-right: 10px;
+                text-align: center;
+                font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                font-size: small;
+                vertical-align: baseline;
+            }
+
+                #entrytb .tb:hover {
+                    cursor: pointer;
+                    background-color: #808080;
+                }
+     
+                    .collapse.in{
+                        display:block !important;
+                    }
+                 
+                  }
+
+@media (max-width: 600px) {
+    .header {
+        background-color: #bd0945;
+        width: 100%;
+        color: #ff6a00;
+        float: left;
+        height: auto;
+        max-height: initial;
+    }
+
+    .search {
+        height: auto;
+        float: left;
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .autocomplete ul {
+        list-style: none;
+        display: block;
+        float: left;
+        margin: 0px;
+        width: 100%;
+        padding-left: 0;
+    }
+
+        .autocomplete ul li {
+            display: block;
+            overflow: hidden;
+        }
+}
+.img180 {
+  -webkit-transform:rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+    </style>
+</head>
+
+<body>
+
+
+    <nav class="navbar navbar-fixed-top header">
+        <div class="container-fluid">
+<div class="row">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#myNavbar" aria-expanded="false">
+                <span class="glyphicon glyphicon-menu-hamburger">Menü</span>
+            </button>
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#dsa">
+                <span class="glyphicon glyphicon-search">Ara</span>
+            </button>
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#baslkac" aria-expanded="false">
+               Başlıklar(Göster / Gizle)
+            </button>
+            <div class="navbar-header">
+                <a href="/"><h4>Ahmet's puff puff, cough Talk</h4></a>
+            </div>
+            
+<ul class="nav navbar-nav navbar-right collapse navbar-collapse" id="myNavbar">
+        
+        <li><a href="/User/Account">Hesap</a></li>
+            <li>  <a href="/User/Logout">Çıkış</a> </li>
+</ul>
+
+        </div>
+    </div>
+    </nav>
+    <p style="margin-top:65px;"></p>
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-lg-2 col-md-11">
+
+                <h2>Most Popular</h2>
+             
+                <div class="basliklar collapse navbar-collapse" id="baslkac">
+                    <ul class="baslikliste">
+                        <li><a href="/">Most Poupler question 1</a></li>
+                        <li><a href="/">Most Poupler question 2</a></li>
+                        <li><a href="/">Most Poupler question 3</a></li>
+
+
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-7">
+                <div class="container-fluid" id="ctr">
+                    
+<div id="entries">
+    <h3> <a href="#entry" id="eekle">Post Question (Tıkla)</a></h3>
+   
+
+    <div class="entry" id="addEnt" style="display:none;">
+        <form action="/Entry/Add/1" method="post">
+            <input name="__RequestVerificationToken" type="hidden" value="U06F-1jZLtSD6RGBR2C5bruP8a0rzVn-PTz_buYYut9QGqo0B-5vMNjlz1GfzIUZ0_RB-4qe3lKDXetYA4lww7CXoUm7LguJe5NjfhUMX9I1" />
+            <input id="baslikid" name="baslikid" type="hidden" value="yazilimcilar-icin-film-dizi-belgesel-listesi" />
+            <textarea id="entry" name="entry"></textarea><br />
+            
+            <p>
+                <input type="submit" value="Gönder">
+                <input data-val="true" id="isDraft" name="isDraft" type="checkbox" value="true"><input name="isDraft" type="hidden" value="false">
+                <label>Taslak Olarak Kaydet</label>
+            </p>
+        </form>
+    </div>
+
+    <div class="col-lg1" style="background-color:yellow;">
+        <div class="entry">
+            <div class="entrycontent">
+              <h4>Soru Başlığı?</h4>
+              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
+            </div>
+            <div class="row entrydet">
+                <div class="col-lg-9 sol">
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=http://devkod.com/Entry/(29)">Facebook</a><a href="https://twitter.com/intent/tweet?url=http://devkod.com/Entry/29&amp;via=devkod&amp;text=Yazılımcılar i&#231;in Film Dizi Belgesel Listesi">Tweet</a>
+                    <a href="/Question/1">@1</a>
+                    <time>14.01.2016 8:26:36</time>
+    
+                    <img src="https://cdn3.iconfinder.com/data/icons/othericons-3-0/50/up-512.png" height="50" width="50">
+                    <img src="https://cdn3.iconfinder.com/data/icons/othericons-3-0/50/up-512.png" height="50" width="50" class="img180">
+                </div>
+                <div class="col-lg-3 sag">
+                    <img src="http://www.gravatar.com/avatar/fcc1c97726b14b1b4ed2f4da9f774993" height="50" width="50">
+                    <a href="/User/cagrik">cagrik</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg1" style="background-color:yellow;">
+        <div class="entry">
+            <div class="entrycontent">
+              <h4>2. Soru Başlığı?</h4>
+              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
+            </div>
+            <div class="row entrydet">
+                <div class="col-lg-9 sol">
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=http://devkod.com/Entry/(29)">Facebook</a><a href="https://twitter.com/intent/tweet?url=http://devkod.com/Entry/29&amp;via=devkod&amp;text=Yazılımcılar i&#231;in Film Dizi Belgesel Listesi">Tweet</a>
+                    <a href="/Question/1">@1</a>
+                    <time>14.01.2016 8:26:36</time>
+    
+                    <img src="https://cdn3.iconfinder.com/data/icons/othericons-3-0/50/up-512.png" height="50" width="50">
+                    <img src="https://cdn3.iconfinder.com/data/icons/othericons-3-0/50/up-512.png" height="50" width="50" class="img180">
+                </div>
+                <div class="col-lg-3 sag">
+                    <img src="http://www.gravatar.com/avatar/fcc1c97726b14b1b4ed2f4da9f774993" height="50" width="50">
+                    <a href="/User/cagrik">cagrik</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg1" style="background-color:yellow;">
+        <div class="entry">
+            <div class="entrycontent">
+              <h4>3. Soru Başlığı?</h4>
+              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
+            </div>
+            <div class="row entrydet">
+                <div class="col-lg-9 sol">
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=http://devkod.com/Entry/(29)">Facebook</a><a href="https://twitter.com/intent/tweet?url=http://devkod.com/Entry/29&amp;via=devkod&amp;text=Yazılımcılar i&#231;in Film Dizi Belgesel Listesi">Tweet</a>
+                    <a href="/Question/2">@2</a>
+                    <time>14.01.2016 8:26:36</time>
+    
+                    <img src="https://cdn3.iconfinder.com/data/icons/othericons-3-0/50/up-512.png" height="50" width="50">
+                    <img src="https://cdn3.iconfinder.com/data/icons/othericons-3-0/50/up-512.png" height="50" width="50" class="img180">
+                </div>
+                <div class="col-lg-3 sag">
+                    <img src="http://www.gravatar.com/avatar/fcc1c97726b14b1b4ed2f4da9f774993" height="50" width="50">
+                    <a href="/User/cagrik">cagrik</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg1" style="background-color:yellow;">
+        <div class="entry">
+            <div class="entrycontent">
+              <h4>4. Soru Başlığı?</h4>
+              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
+            </div>
+            <div class="row entrydet">
+                <div class="col-lg-9 sol">
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=http://devkod.com/Entry/(29)">Facebook</a><a href="https://twitter.com/intent/tweet?url=http://devkod.com/Entry/29&amp;via=devkod&amp;text=Yazılımcılar i&#231;in Film Dizi Belgesel Listesi">Tweet</a>
+                    <a href="/Question/3">@3</a>
+                    <time>14.01.2016 8:26:36</time>
+    
+                    <img src="https://cdn3.iconfinder.com/data/icons/othericons-3-0/50/up-512.png" height="50" width="50">
+                    <img src="https://cdn3.iconfinder.com/data/icons/othericons-3-0/50/up-512.png" height="50" width="50" class="img180">
+                </div>
+                <div class="col-lg-3 sag">
+                    <img src="http://www.gravatar.com/avatar/fcc1c97726b14b1b4ed2f4da9f774993" height="50" width="50">
+                    <a href="/User/cagrik">cagrik</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg1" style="background-color:yellow;">
+        <div class="entry">
+            <div class="entrycontent">
+              <h4>5. Soru Başlığı?</h4>
+              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
+            </div>
+            <div class="row entrydet">
+                <div class="col-lg-9 sol">
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=http://devkod.com/Entry/(29)">Facebook</a><a href="https://twitter.com/intent/tweet?url=http://devkod.com/Entry/29&amp;via=devkod&amp;text=Yazılımcılar i&#231;in Film Dizi Belgesel Listesi">Tweet</a>
+                    <a href="/Question/4">@5</a>
+                    <time>14.01.2016 8:26:36</time>
+    
+                    <img src="https://cdn3.iconfinder.com/data/icons/othericons-3-0/50/up-512.png" height="50" width="50">
+                    <img src="https://cdn3.iconfinder.com/data/icons/othericons-3-0/50/up-512.png" height="50" width="50" class="img180">
+                </div>
+                <div class="col-lg-3 sag">
+                    <img src="http://www.gravatar.com/avatar/fcc1c97726b14b1b4ed2f4da9f774993" height="50" width="50">
+                    <a href="/User/cagrik">cagrik</a>
+                </div>
+            </div>
+        </div>
+    </div>
+ 
+
+</div>
+    <div class="entrypager">
+        <select class="ddSayfa">
+        <option selected>1</option>        </select>/<a href="#" data-p="1" class="pgr">1</a>
+    </div>
+
+
+        </div>
+
+                </div>
+            </div>
+
+            <div class="col-lg-3" style="background-color:lavender;">
+               
+            </div>
+        </div>
+    </div>
+
+<footer>
+    <nav>
+        <ul>
+            <li><a href="https://facebook.com/">Facebook</a></li>
+            <li><a href="https://twitter.com/">Twitter</a></li>
+            <li><address>mail@hotmail.com</address></li>
+        </ul>
+    </nav>
+</footer>
+
+
+    <script type="text/javascript">
+        (function () {
+            var blink = document.getElementById('eekle');
+            if (blink != null) {
+                blink.addEventListener("click", arama);
+            }
+        })();
+        
+           
+     
+     
+        function arama() {
+
+            var eklemey = document.getElementById('addEnt');
+            if (eklemey.style.display == 'none') {
+                eklemey.style.display = 'block';
+            }
+            else {
+                eklemey.style.display = 'none';
+            }
+        }
+    </script>
+
+</body>
+</html>
